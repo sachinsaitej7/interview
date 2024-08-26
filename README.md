@@ -17,12 +17,12 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## Tasks
 
 ### Bugs
-1. Rotten Tomators (provider rt) are not showing up right.
+1. Rotten Tomatos movies (provider [rt](/src/server/providers/rt/)) are not showing up on the front page. Eg: Breaking Bad should show up under "Crime" genre, but its not.
    RT and Imdb differences:
    1. field names might be different.
    2. Poster in RT comes as a first image in images.
 2. Genre List is not sorted. 
-3. Show a fallback image when image fails to load.
+3. Show a fallback image when image fails to load. (There is a poster without an image)
 
 ### Improvements
 1. Favorite feature.
