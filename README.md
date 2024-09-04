@@ -18,9 +18,9 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ### Bugs
 1. Rotten Tomatos movies (provider [rt](/src/server/providers/rt/)) are not showing up on the front page. Eg: Breaking Bad should show up under "Crime" genre, but its not.
-   RT and Imdb differences:
-   1. field names might be different.
-   2. Poster in RT comes as a first image in images.
+   Differences between RT (not working) and Imdb (working):
+   1. Data might have different structure compared to IMDB data (e.g. field names).
+   2. RT data doesn't have a poster, assume the first image as the poster. 
 2. Genre List is not sorted. 
 3. Show a fallback image when image fails to load. (There is a poster without an image)
 
@@ -28,6 +28,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 1. Favorite feature.
     1. [Backend] Expose functionality to favorite a movie. (keep favorites in memory)
     2. [Frontend] Show "star" icon to enable favorite.
+    3. note: You can assume that the favoriting is a global feature. no need to worry about user authentication.
 2. Make the front page look pretty.
     1. Get caraousel working. https://preline.co/docs/carousel.html     
     2. Make Plot show up on hover. (extra points: after 500ms delay)    
