@@ -1,14 +1,14 @@
-import { getGenereAndMovies, getFavorites, markFavorite } from "@/server/movies";
+import { getGenereAndMovies } from "@/server/movies";
 import MovieCard from "@/components/movie-card";
 import { Suspense } from "react";
 
-function MovieListCaraousel({ movies, handleFavourite, favoriteMovies }) {
+async function MovieListCaraousel({ movies }) {
     // TODO: show more than 6 movies by scrolling
     const moviesToShow = movies.slice(0, 6);
     return (
         <div className="grid grid-cols-6 gap-4">
             {moviesToShow.map((movie, idx) => (
-                <MovieCard key={idx} movie={movie} handleFavourite={markFavorite} isFavourite={favoriteMovies.includes(movie.id)} />
+                <MovieCard key={idx} movie={movie} />
             ))}
         </div>
     );
@@ -16,7 +16,6 @@ function MovieListCaraousel({ movies, handleFavourite, favoriteMovies }) {
 
 async function LoadedGenres() {
     const genre = await getGenereAndMovies();
-    const favoriteMovies = await getFavorites();
 
     return (
         <div className="flex flex-col gap-4">
@@ -25,7 +24,7 @@ async function LoadedGenres() {
                     <h2 className="text-md font-semibold text-gray-800 dark:text-white">
                         {genre.title}
                     </h2>
-                    <MovieListCaraousel movies={genre.movies} favoriteMovies={favoriteMovies}/>
+                    <MovieListCaraousel movies={genre.movies}/>
                 </div>
             ))}
         </div>
